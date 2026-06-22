@@ -222,6 +222,7 @@ Converted into:
 Weather Condition
 ├── Clear
 ├── Rain
+├── Fog/Smoke/Haze
 └── Unknown
 ```
 
@@ -459,56 +460,40 @@ Key Visuals:
 # Project Structure
 
 ```text
-robotaxi-analytics/
-│
-├── README.md
-│
+US_Robotaxi_Safety_Intelligence_&_Analytics/
+├── dashboard/
+│   ├── Assets/                             # Static assets (images, icons) used in the dashboard
+│   └── robotaxi_dashboard.pbix             # Power BI dashboard file
 ├── data/
 │   ├── raw/
-│   │   └── Original NHTSA ADS dataset
-│   │
-│   └── processed/
-│       └── Canonical cleaned dataset
-│
+│   │   └── SGO-2021-01_Incident_Reports_ADS.csv # Original, unaltered source incident data
+│   ├── robotaxi_cleaned.csv                # Cleaned dataset ready for analysis
+│   └── sorted_duplicates.csv               # Isolated and sorted duplicate records for quality tracking
 ├── notebooks/
-│   ├── 01_data_understanding.ipynb
-│   ├── 02_data_cleaning.ipynb
-│   └── 03_operational_analysis.ipynb
-│
+│   ├── 01_data_understanding.ipynb         # Initial data exploration and profiling
+│   ├── 02_data_cleaning.ipynb              # Data preprocessing, handling missing values & duplicates
+│   └── 03_operational_analysis.ipynb       # Core analysis, metrics computation, and insights
+├── notes/
+│   ├── analytical_findings.md              # Key insights and data takeaways
+│   ├── data_quality_log.md                 # Log documenting data anomalies and transformations
+│   └── methodology_notes.md                # Explanations of analytical frameworks and assumptions
 ├── reports/
-│   ├── Robotaxi_Incident_Analysis_Repot.docx
-│   └── Duplicate Investigation Report
-│
-├── powerbi/
-│   ├── robotaxi_dashboard.pbit
-│   ├── model.tmdl
-│   ├── relationships.tmdl
-│   ├── database.tmdl
-│   ├── DateTable.tmdl
-│   ├── robotaxi_cleaned.tmdl
-│   └── _measures table.tmdl
-│
-├── visuals/
-│   ├── severity_analysis/
-│   ├── geography_analysis/
-│   ├── reporting_delay_analysis/
-│   └── operator_trends/
-│
-├── sql/
-│   └── future_sql_analysis.sql
-│
-└── notes/
-    ├── methodology_notes.md
-    ├── data_quality_log.md
-    └── analytical_findings.md
+│   ├── robotaxi_duplicates_analysis_report.html # HTML export of the data quality/duplicate analysis
+│   └── US_Robotaxi_Safety_Intelligence_Report.docx # Comprehensive written safety intelligence report
+└── visuals/
+    ├──executive-overview.png               # High-level summary visual for stakeholders
+    ├── geographic-analysis.png             # Visual maps/plots of incident locations
+    ├── operational-risk-analysis.png       # Plots highlighting risk levels and metrics
+    └── reporting-analysis.png              # Charts breaking down reporting trends over time
+
 ```
 
 ### Repository Assets
 
-Power BI Template:
+Power BI Assets:
 
 ```text
-/powerbi/robotaxi_dashboard.pbit
+/dashboard/assets/
 ```
 
 Analytical Reports:
@@ -544,19 +529,19 @@ Python Analysis:
 
 ## Executive Overview
 
-![Executive Overview](images/executive-overview.png)
+![Executive Overview](visuals/executive-overview.png)
 
 ## Operational Risk Analysis
 
-![Operational Risk Analysis](images/operational-risk.png)
+![Operational Risk Analysis](visuals/operational-risk-analysis.png)
 
 ## Geographic & Operator Intelligence
 
-![Geographic Intelligence](images/geographic-intelligence.png)
+![Geographic Intelligence](visuals/geographic-analysis.png)
 
 ## Reporting Compliance Dashboard
 
-![Reporting Compliance](images/reporting-compliance.png)
+![Reporting Compliance](visuals/reporting-analysis.png)
 
 ---
 
